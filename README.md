@@ -1,26 +1,15 @@
-# Mo Money, Mo Problems: The Graph — v3
+# Mo Money, Mo Problems: The Graph — v4
 
-Static website. No build step. Netlify-ready.
+Upload/replace these files in GitHub.
 
-## Main edit file
+## Changes in v4
 
-Edit `content.json` to change:
+- Sweet Spot label now has breathing space under the curve.
+- Added unique visitor counter section under the graph.
+- Added footer banner linking copacabana.space to https://www.copacabana.space
+- Removed extra bottom sections.
+- Problems remain editable in `content.json`.
 
-- tier names
-- tier captions
-- problem questions
-- curve values
-- Sweet Spot message
-- final message
-- music embed
+## Note on visitor counter
 
-## v3 changes
-
-- Uses the 59-problem progression.
-- Sweet Spot is quieter: no question list, only “No major financial questions.”
-- Problems appear in a readable side panel beside the graph.
-- The curve values are heavier on both sides and lowest at The Sweet Spot.
-
-## Deploy
-
-Upload/replace all files in your GitHub repo. Netlify will auto-deploy.
+The counter uses CountAPI and localStorage, so it counts one visit per browser/device. It is a lightweight static-site solution, not a perfect analytics system.

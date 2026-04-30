@@ -7,8 +7,7 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="hero">
-    <h1 id="site-title">MO MONEY<br>MO PROBLEMS</h1>
+  <header class="top-strip">
     <p id="site-subtitle">Money solves problems… until it invents new ones.</p>
   </header>
 
@@ -16,33 +15,32 @@
     <section class="lab" aria-labelledby="graph-title">
       <div class="tier-display">
         <p class="eyebrow">Current tier</p>
-        <h2 id="tier-name">Loading…</h2>
+        <h1 id="tier-name">Loading…</h1>
         <p id="tier-caption"></p>
       </div>
 
       <div class="graph-and-problems">
         <div class="graph-wrap">
-          <svg id="money-graph" viewBox="0 0 900 520" role="img" aria-labelledby="graph-title graph-desc">
+          <svg id="money-graph" viewBox="0 0 900 540" role="img" aria-labelledby="graph-title graph-desc">
             <title id="graph-title">Money versus problems graph</title>
             <desc id="graph-desc">A U-shaped curve showing problems decreasing as money increases, then increasing again after the sweet spot.</desc>
-
-            <line x1="110" y1="430" x2="820" y2="430" class="axis" />
-            <line x1="110" y1="430" x2="110" y2="80" class="axis" />
-            <polygon points="820,430 800,420 800,440" class="axis-fill" />
-            <polygon points="110,80 100,100 120,100" class="axis-fill" />
-
-            <text x="465" y="490" class="axis-label">Money</text>
-            <text x="42" y="255" class="axis-label vertical">Problems</text>
-
+            <line x1="110" y1="440" x2="820" y2="440" class="axis" />
+            <line x1="110" y1="440" x2="110" y2="70" class="axis" />
+            <polygon points="820,440 800,430 800,450" class="axis-fill" />
+            <polygon points="110,70 100,90 120,90" class="axis-fill" />
+            <text x="465" y="512" class="axis-label">Money</text>
+            <text x="42" y="260" class="axis-label vertical">Problems</text>
             <path id="curve-path" class="curve" d="" />
-
             <g id="sweet-marker">
-              <line id="sweet-line" class="sweet-line" x1="0" y1="0" x2="0" y2="430" />
-              <circle id="sweet-dot" class="sweet-dot" r="7" />
+              <line id="sweet-line-left" class="sweet-line" x1="0" y1="0" x2="0" y2="0" />
+              <line id="sweet-line-right" class="sweet-line" x1="0" y1="0" x2="0" y2="0" />
+              <line id="sweet-line-bottom" class="sweet-line" x1="0" y1="0" x2="0" y2="0" />
+              <polygon id="sweet-arrow-left" class="sweet-arrow" points="" />
+              <polygon id="sweet-arrow-right" class="sweet-arrow" points="" />
+              <circle id="sweet-dot" class="sweet-dot" r="8" />
               <text id="sweet-label" class="sweet-label" text-anchor="middle">The Sweet Spot</text>
             </g>
-
-            <circle id="current-dot" class="current-dot" r="8" />
+            <circle id="current-dot" class="current-dot" r="9" />
           </svg>
         </div>
 
@@ -59,16 +57,29 @@
         <label for="money-slider">Money</label>
         <input id="money-slider" type="range" min="0" max="10" value="0" step="1" />
       </div>
+
+      <section class="counter-section" aria-label="Unique visitors">
+        <div class="counter-card">
+          <div class="counter-icon" aria-hidden="true">
+            <svg viewBox="0 0 64 64" width="42" height="42">
+              <circle cx="25" cy="21" r="10"></circle>
+              <circle cx="43" cy="24" r="8"></circle>
+              <path d="M8 52c2-13 11-20 23-20s21 7 23 20z"></path>
+              <path d="M34 52c2-10 9-15 18-15 4 0 8 1 11 4"></path>
+            </svg>
+          </div>
+          <div class="counter-divider"></div>
+          <div class="counter-copy">
+            <strong id="visitor-count">—</strong>
+            <span>unique visitors</span>
+          </div>
+        </div>
+      </section>
     </section>
 
-    <section class="music">
-      <h2>A reminder to keep it real</h2>
-      <div id="music-embed" class="music-embed"></div>
-    </section>
-
-    <section class="share-section">
-      <button id="share-button" type="button">Share</button>
-    </section>
+    <footer class="project-footer">
+      <h2>a project by the <a href="https://www.copacabana.space" target="_blank" rel="noopener">copacabana.space</a> gang</h2>
+    </footer>
   </main>
 
   <script src="script.js"></script>

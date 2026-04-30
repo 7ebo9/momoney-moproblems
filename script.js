@@ -2,20 +2,22 @@ let content = {};
 let points = [];
 
 const slider = document.getElementById("money-slider");
-const title = document.getElementById("site-title");
 const subtitle = document.getElementById("site-subtitle");
 const tierName = document.getElementById("tier-name");
 const tierCaption = document.getElementById("tier-caption");
 const curvePath = document.getElementById("curve-path");
 const currentDot = document.getElementById("current-dot");
-const sweetLine = document.getElementById("sweet-line");
+const sweetLineLeft = document.getElementById("sweet-line-left");
+const sweetLineRight = document.getElementById("sweet-line-right");
+const sweetLineBottom = document.getElementById("sweet-line-bottom");
+const sweetArrowLeft = document.getElementById("sweet-arrow-left");
+const sweetArrowRight = document.getElementById("sweet-arrow-right");
 const sweetDot = document.getElementById("sweet-dot");
 const sweetLabel = document.getElementById("sweet-label");
 const problemsList = document.getElementById("problems-list");
 const sweetMessage = document.getElementById("sweet-message");
 const finalMessage = document.getElementById("final-message");
-const musicEmbed = document.getElementById("music-embed");
-const shareButton = document.getElementById("share-button");
+const visitorCount = document.getElementById("visitor-count");
 
 init();
 
@@ -26,15 +28,13 @@ async function init() {
   applyContent();
   buildGraph();
   update(Number(slider.value));
+  loadVisitorCounter();
 
   slider.addEventListener("input", () => update(Number(slider.value)));
-  shareButton.addEventListener("click", sharePage);
 }
 
 function applyContent() {
-  title.innerText = content.title;
   subtitle.innerText = content.subtitle;
-  musicEmbed.innerHTML = content.musicEmbedHtml || "";
   slider.min = 0;
   slider.max = content.tiers.length - 1;
   slider.step = 1;
@@ -42,7 +42,7 @@ function applyContent() {
 }
 
 function buildGraph() {
-  const left = 150, right = 780, top = 105, bottom = 392;
+  const left = 150, right = 780, top = 95, bottom = 368;
   const maxValue = Math.max(...content.tiers.map(t => t.value));
   const minValue = Math.min(...content.tiers.map(t => t.value));
   const range = maxValue - minValue || 1;
@@ -57,14 +57,34 @@ function buildGraph() {
   curvePath.setAttribute("d", makeSmoothPath(points));
 
   const sweet = points[content.sweetSpotIndex];
+  const bracketY = 392;
+  const bracketHalfWidth = 155;
+  const leftX = sweet.x - bracketHalfWidth;
+  const rightX = sweet.x + bracketHalfWidth;
+
   sweetDot.setAttribute("cx", sweet.x);
   sweetDot.setAttribute("cy", sweet.y);
-  sweetLine.setAttribute("x1", sweet.x);
-  sweetLine.setAttribute("x2", sweet.x);
-  sweetLine.setAttribute("y1", sweet.y);
-  sweetLine.setAttribute("y2", 430);
+
+  sweetLineLeft.setAttribute("x1", leftX);
+  sweetLineLeft.setAttribute("x2", leftX);
+  sweetLineLeft.setAttribute("y1", bracketY - 58);
+  sweetLineLeft.setAttribute("y2", bracketY + 12);
+
+  sweetLineRight.setAttribute("x1", rightX);
+  sweetLineRight.setAttribute("x2", rightX);
+  sweetLineRight.setAttribute("y1", bracketY - 58);
+  sweetLineRight.setAttribute("y2", bracketY + 12);
+
+  sweetLineBottom.setAttribute("x1", leftX + 8);
+  sweetLineBottom.setAttribute("x2", rightX - 8);
+  sweetLineBottom.setAttribute("y1", bracketY);
+  sweetLineBottom.setAttribute("y2", bracketY);
+
+  sweetArrowLeft.setAttribute("points", `${leftX + 8},${bracketY} ${leftX + 22},${bracketY - 8} ${leftX + 22},${bracketY + 8}`);
+  sweetArrowRight.setAttribute("points", `${rightX - 8},${bracketY} ${rightX - 22},${bracketY - 8} ${rightX - 22},${bracketY + 8}`);
+
   sweetLabel.setAttribute("x", sweet.x);
-  sweetLabel.setAttribute("y", sweet.y + 42);
+  sweetLabel.setAttribute("y", bracketY - 20);
 }
 
 function makeSmoothPath(pts) {
@@ -125,22 +145,28 @@ function renderProblems(questions, isSweet) {
   });
 }
 
-async function sharePage() {
-  const shareData = { title: document.title, text: content.subtitle, url: window.location.href };
-
-  if (navigator.share) {
-    try {
-      await navigator.share(shareData);
-      return;
-    } catch (err) {}
-  }
+async function loadVisitorCounter() {
+  const key = "mmmp_unique_visitor_counted_v1";
+  const namespace = content.counterNamespace || "mo-money-mo-problems";
+  const counterKey = content.counterKey || "unique-visitors";
 
   try {
-    await navigator.clipboard.writeText(window.location.href);
-    shareButton.textContent = "Link copied";
-    setTimeout(() => (shareButton.textContent = "Share"), 1600);
-  } catch (err) {
-    shareButton.textContent = "Copy failed";
-    setTimeout(() => (shareButton.textContent = "Share"), 1600);
+    if (!localStorage.getItem(key)) {
+      const hit = await fetch(`https://api.countapi.xyz/hit/${namespace}/${counterKey}`);
+      const data = await hit.json();
+      localStorage.setItem(key, "true");
+      visitorCount.textContent = formatCount(data.value);
+      return;
+    }
+
+    const get = await fetch(`https://api.countapi.xyz/get/${namespace}/${counterKey}`);
+    const data = await get.json();
+    visitorCount.textContent = formatCount(data.value || 0);
+  } catch (error) {
+    visitorCount.textContent = "—";
   }
+}
+
+function formatCount(value) {
+  return Number(value || 0).toLocaleString("en-US");
 }
