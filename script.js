@@ -2,6 +2,7 @@ let content = {};
 let points = [];
 
 const slider = document.getElementById("money-slider");
+const title = document.getElementById("site-title");
 const subtitle = document.getElementById("site-subtitle");
 const tierName = document.getElementById("tier-name");
 const tierCaption = document.getElementById("tier-caption");
@@ -17,6 +18,8 @@ const sweetLabel = document.getElementById("sweet-label");
 const problemsList = document.getElementById("problems-list");
 const sweetMessage = document.getElementById("sweet-message");
 const finalMessage = document.getElementById("final-message");
+const musicEmbed = document.getElementById("music-embed");
+const shareButton = document.getElementById("share-button");
 const visitorCount = document.getElementById("visitor-count");
 
 init();
@@ -31,10 +34,13 @@ async function init() {
   loadVisitorCounter();
 
   slider.addEventListener("input", () => update(Number(slider.value)));
+  shareButton.addEventListener("click", sharePage);
 }
 
 function applyContent() {
+  title.innerText = content.title;
   subtitle.innerText = content.subtitle;
+  musicEmbed.innerHTML = content.musicEmbedHtml || "";
   slider.min = 0;
   slider.max = content.tiers.length - 1;
   slider.step = 1;
@@ -42,7 +48,7 @@ function applyContent() {
 }
 
 function buildGraph() {
-  const left = 150, right = 780, top = 95, bottom = 368;
+  const left = 150, right = 780, top = 105, bottom = 356;
   const maxValue = Math.max(...content.tiers.map(t => t.value));
   const minValue = Math.min(...content.tiers.map(t => t.value));
   const range = maxValue - minValue || 1;
@@ -57,7 +63,7 @@ function buildGraph() {
   curvePath.setAttribute("d", makeSmoothPath(points));
 
   const sweet = points[content.sweetSpotIndex];
-  const bracketY = 392;
+  const bracketY = 406;
   const bracketHalfWidth = 155;
   const leftX = sweet.x - bracketHalfWidth;
   const rightX = sweet.x + bracketHalfWidth;
@@ -84,7 +90,7 @@ function buildGraph() {
   sweetArrowRight.setAttribute("points", `${rightX - 8},${bracketY} ${rightX - 22},${bracketY - 8} ${rightX - 22},${bracketY + 8}`);
 
   sweetLabel.setAttribute("x", sweet.x);
-  sweetLabel.setAttribute("y", bracketY - 20);
+  sweetLabel.setAttribute("y", bracketY - 19);
 }
 
 function makeSmoothPath(pts) {
@@ -143,6 +149,26 @@ function renderProblems(questions, isSweet) {
     li.style.animationDelay = `${index * 70}ms`;
     problemsList.appendChild(li);
   });
+}
+
+async function sharePage() {
+  const shareData = { title: document.title, text: content.subtitle, url: window.location.href };
+
+  if (navigator.share) {
+    try {
+      await navigator.share(shareData);
+      return;
+    } catch (err) {}
+  }
+
+  try {
+    await navigator.clipboard.writeText(window.location.href);
+    shareButton.textContent = "Link copied";
+    setTimeout(() => (shareButton.textContent = "Share"), 1600);
+  } catch (err) {
+    shareButton.textContent = "Copy failed";
+    setTimeout(() => (shareButton.textContent = "Share"), 1600);
+  }
 }
 
 async function loadVisitorCounter() {

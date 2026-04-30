@@ -1,15 +1,21 @@
-# Mo Money, Mo Problems: The Graph — v4
+# Mo Money, Mo Problems: The Graph — v4 corrected
 
-Upload/replace these files in GitHub.
+This version keeps v3 structure and adds only the requested corrections.
 
-## Changes in v4
+## Keeps from v3
 
-- Sweet Spot label now has breathing space under the curve.
-- Added unique visitor counter section under the graph.
-- Added footer banner linking copacabana.space to https://www.copacabana.space
-- Removed extra bottom sections.
-- Problems remain editable in `content.json`.
+- Main MO MONEY MO PROBLEMS banner
+- Music embed section
+- Share button
+- Side problems panel
 
-## Note on visitor counter
+## Added
 
-The counter uses CountAPI and localStorage, so it counts one visit per browser/device. It is a lightweight static-site solution, not a perfect analytics system.
+- Sweet Spot label has more breathing space
+- Unique visitor counter below the graph
+- Footer banner: a project by the copacabana.space gang
+- copacabana.space links to https://www.copacabana.space
+
+## Editing
+
+Edit `content.json` to change tiers, captions, problems, music embed, and messages.

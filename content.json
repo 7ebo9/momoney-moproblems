@@ -1,8 +1,10 @@
 {
+  "title": "MO MONEY\nMO PROBLEMS",
   "subtitle": "Money solves problems… until it invents new ones.",
   "sweetSpotIndex": 5,
   "sweetSpotMessage": "Congratulations. You made it to The Sweet Spot. Your wealth level has gifted you stress relief, answered most of life’s financial worries, and given you and your children stability. You are now free to use your disposable time and income to do what you truly love.",
   "finalMessage": "What was the point again?",
+  "musicEmbedHtml": "<iframe height=\"152\" src=\"https://open.spotify.com/embed/track/4INDiWSKvqSKDEu7mh8HFz?utm_source=generator\" allow=\"autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture\" loading=\"lazy\"></iframe>",
   "counterNamespace": "mo-money-mo-problems",
   "counterKey": "unique-visitors",
   "tiers": [
