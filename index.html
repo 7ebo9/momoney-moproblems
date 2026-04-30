@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mo Money, Mo Problems: The Graph</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <h1 id="site-title">MO MONEY<br>MO PROBLEMS</h1>
+    <p id="site-subtitle">Money solves problems… until it invents new ones.</p>
+  </header>
+
+  <main>
+    <section class="lab" aria-labelledby="graph-title">
+      <div class="tier-display">
+        <p class="eyebrow">Current tier</p>
+        <h2 id="tier-name">Loading…</h2>
+        <p id="tier-caption"></p>
+      </div>
+
+      <div class="graph-wrap">
+        <div id="question-layer" aria-hidden="true"></div>
+
+        <svg id="money-graph" viewBox="0 0 900 520" role="img" aria-labelledby="graph-title graph-desc">
+          <title id="graph-title">Money versus problems graph</title>
+          <desc id="graph-desc">A U-shaped curve showing problems decreasing as money increases, then increasing again after the sweet spot.</desc>
+
+          <!-- axes -->
+          <line x1="110" y1="430" x2="820" y2="430" class="axis" />
+          <line x1="110" y1="430" x2="110" y2="80" class="axis" />
+          <polygon points="820,430 800,420 800,440" class="axis-fill" />
+          <polygon points="110,80 100,100 120,100" class="axis-fill" />
+
+          <!-- axis labels -->
+          <text x="465" y="490" class="axis-label">Money</text>
+          <text x="42" y="255" class="axis-label vertical">Problems</text>
+
+          <!-- curve -->
+          <path id="curve-path" class="curve" d="" />
+
+          <!-- sweet spot -->
+          <g id="sweet-marker">
+            <line id="sweet-line" class="sweet-line" x1="0" y1="0" x2="0" y2="430" />
+            <circle id="sweet-dot" class="sweet-dot" r="7" />
+            <text id="sweet-label" class="sweet-label" text-anchor="middle">The Sweet Spot</text>
+          </g>
+
+          <!-- moving dot -->
+          <circle id="current-dot" class="current-dot" r="8" />
+        </svg>
+      </div>
+
+      <div class="sweet-message" id="sweet-message" hidden></div>
+      <div class="final-message" id="final-message" hidden></div>
+
+      <div class="slider-area">
+        <label for="money-slider">Money</label>
+        <input id="money-slider" type="range" min="0" max="10" value="0" step="1" />
+      </div>
+    </section>
+
+    <section class="music">
+      <h2>A reminder to keep it real</h2>
+      <div id="music-embed" class="music-embed"></div>
+    </section>
+
+    <section class="share-section">
+      <button id="share-button" type="button">Share</button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

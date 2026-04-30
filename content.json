@@ -1,0 +1,130 @@
+{
+  "title": "MO MONEY\nMO PROBLEMS",
+  "subtitle": "Money solves problems… until it invents new ones.",
+  "sweetSpotIndex": 5,
+  "sweetSpotMessage": "Congratulations. You made it to The Sweet Spot. Your wealth level has gifted you stress relief, answered most of life’s financial worries, and given you and your children stability. You are now free to use your disposable time and income to do what you truly love.",
+  "finalMessage": "What was the point again?",
+  "musicEmbedHtml": "<iframe height=\"152\" src=\"https://open.spotify.com/embed/track/4INDiWSKvqSKDEu7mh8HFz?utm_source=generator\" allow=\"autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture\" loading=\"lazy\"></iframe>",
+  "tiers": [
+    {
+      "name": "Survival Mode",
+      "caption": "Money is not abstract here. It is rent, food, transport, and breathing room.",
+      "value": 10,
+      "questions": [
+        "Can I pay rent?",
+        "Can I cover bills?",
+        "What if I get sick?",
+        "Can I fix the car?",
+        "Can I make it to next month?",
+        "What can I delay?",
+        "Is there anything left after food?"
+      ]
+    },
+    {
+      "name": "Bills Covered",
+      "caption": "The emergency siren is quieter, but still plugged in.",
+      "value": 8,
+      "questions": [
+        "Can I save anything?",
+        "What if a bill doubles?",
+        "Can I afford insurance?",
+        "Is this stability or just a good month?",
+        "Can I say yes to dinner?"
+      ]
+    },
+    {
+      "name": "Stable Ground",
+      "caption": "Life stops feeling like a trap door every morning.",
+      "value": 6,
+      "questions": [
+        "How much should I save?",
+        "Can I take a small trip?",
+        "What if work slows down?",
+        "Should I finally fix that thing?"
+      ]
+    },
+    {
+      "name": "Comfortable",
+      "caption": "A little oxygen enters the room.",
+      "value": 5,
+      "questions": [
+        "Can I invest now?",
+        "What is the sensible next step?",
+        "How much buffer is enough?"
+      ]
+    },
+    {
+      "name": "Secure",
+      "caption": "The future starts looking less like a threat.",
+      "value": 4.4,
+      "questions": [
+        "How do I protect this?",
+        "What should I build next?"
+      ]
+    },
+    {
+      "name": "The Sweet Spot",
+      "caption": "Comfortable home, passive income, future secured for children, freedom of time.",
+      "value": 3.8,
+      "questions": []
+    },
+    {
+      "name": "Extra Comfortable",
+      "caption": "The answers are still useful, but new questions have entered the chat.",
+      "value": 4.5,
+      "questions": [
+        "Should I buy another property?",
+        "Do I need to rebalance investments?",
+        "Why am I checking markets daily?"
+      ]
+    },
+    {
+      "name": "Asset Weather",
+      "caption": "The portfolio has moods now.",
+      "value": 6,
+      "questions": [
+        "Who manages all this?",
+        "Is my accountant worried?",
+        "Do I need another advisor?",
+        "Is this enough for three generations?",
+        "Why does my peer have more?"
+      ]
+    },
+    {
+      "name": "Admin Dynasty",
+      "caption": "You escaped scarcity and entered scheduling.",
+      "value": 8,
+      "questions": [
+        "Which entity owns which thing?",
+        "Did I optimize the structure correctly?",
+        "Are my children too comfortable?",
+        "Why do I have six calendars?",
+        "Who manages the person who manages this?"
+      ]
+    },
+    {
+      "name": "Endless Tabs Open",
+      "caption": "Wealth unlocked: endless tabs open.",
+      "value": 10,
+      "questions": [
+        "Should the yacht have a gym?",
+        "Which tax jurisdiction matches my mood?",
+        "Do I need a retreat to recover from the retreat?",
+        "Why does the second chef need a consultant?",
+        "Am I diversified emotionally?"
+      ]
+    },
+    {
+      "name": "Fully Detached From the Human Experience",
+      "caption": "The curve has become a mirror and nobody likes that.",
+      "value": 12,
+      "questions": [
+        "Which assistant manages the assistants?",
+        "Should I buy privacy or silence?",
+        "Why does everyone want a meeting?",
+        "Is the island too visible?",
+        "What was the point again?"
+      ]
+    }
+  ]
+}
