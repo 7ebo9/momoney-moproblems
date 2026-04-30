@@ -8,110 +8,123 @@
   "tiers": [
     {
       "name": "Survival Mode",
-      "caption": "Money is not abstract here. It is rent, food, transport, and breathing room.",
+      "caption": "Every month feels like a boss fight with receipts.",
       "value": 10,
       "questions": [
-        "Can I pay rent?",
-        "Can I cover bills?",
+        "Can I pay rent this month?",
+        "Can I cover electricity and water?",
+        "What if the car breaks down?",
+        "Can I afford groceries this week?",
         "What if I get sick?",
-        "Can I fix the car?",
-        "Can I make it to next month?",
-        "What can I delay?",
-        "Is there anything left after food?"
+        "Can I make it to payday?",
+        "Which bill can wait?",
+        "Can I afford to see a dentist?"
+      ]
+    },
+    {
+      "name": "Barely Floating",
+      "caption": "The basics are almost covered, but one surprise can still ruin the plot.",
+      "value": 8.6,
+      "questions": [
+        "How do I save anything?",
+        "What if my hours get cut?",
+        "Can I replace broken shoes?",
+        "Can I afford heating this winter?",
+        "What if my phone dies?",
+        "How long can I keep juggling this?",
+        "Can I help my family if they need me?"
       ]
     },
     {
       "name": "Bills Covered",
-      "caption": "The emergency siren is quieter, but still plugged in.",
-      "value": 8,
+      "caption": "The alarms are quieter. They are still alarms.",
+      "value": 7.1,
       "questions": [
-        "Can I save anything?",
-        "What if a bill doubles?",
-        "Can I afford insurance?",
-        "Is this stability or just a good month?",
-        "Can I say yes to dinner?"
+        "What if rent goes up again?",
+        "Can I ever get ahead?",
+        "Why does one mistake cost so much?",
+        "Can I afford a holiday once in my life?",
+        "What happens if I lose my job?",
+        "Can I raise children like this?"
       ]
     },
     {
       "name": "Stable Ground",
-      "caption": "Life stops feeling like a trap door every morning.",
-      "value": 6,
+      "caption": "You can breathe now, but you still check the floor for trapdoors.",
+      "value": 5.5,
       "questions": [
-        "How much should I save?",
-        "Can I take a small trip?",
-        "What if work slows down?",
-        "Should I finally fix that thing?"
+        "Am I working just to stay stuck?",
+        "Is everyone else coping better than me?",
+        "How long can stress be normal?",
+        "Is this all life is?",
+        "How much emergency savings is enough?"
       ]
     },
     {
       "name": "Comfortable",
-      "caption": "A little oxygen enters the room.",
-      "value": 5,
+      "caption": "Life stops being only damage control.",
+      "value": 4.2,
       "questions": [
-        "Can I invest now?",
-        "What is the sensible next step?",
-        "How much buffer is enough?"
-      ]
-    },
-    {
-      "name": "Secure",
-      "caption": "The future starts looking less like a threat.",
-      "value": 4.4,
-      "questions": [
-        "How do I protect this?",
-        "What should I build next?"
+        "Should I invest or overpay debt?",
+        "Can I finally relax a little?",
+        "What do I actually enjoy doing?",
+        "Have I already made it more than I realize?"
       ]
     },
     {
       "name": "The Sweet Spot",
       "caption": "Comfortable home, passive income, future secured for children, freedom of time.",
-      "value": 3.8,
+      "value": 3,
       "questions": []
     },
     {
       "name": "Extra Comfortable",
-      "caption": "The answers are still useful, but new questions have entered the chat.",
-      "value": 4.5,
+      "caption": "The first world problems begin politely.",
+      "value": 4.1,
       "questions": [
-        "Should I buy another property?",
-        "Do I need to rebalance investments?",
-        "Why am I checking markets daily?"
+        "Should we go business class this time?",
+        "Is one holiday enough this year?",
+        "Do I really need a second property?",
+        "Why am I checking markets every morning?"
+      ]
+    },
+    {
+      "name": "Lifestyle Creep",
+      "caption": "Convenience has entered its demanding era.",
+      "value": 5.7,
+      "questions": [
+        "Should I upgrade the kitchen again?",
+        "Which gym membership is best now?",
+        "Why is choosing restaurants stressful?",
+        "Do I need a better watch or a better hobby?",
+        "Why does everyone recommend a financial advisor?",
+        "Is comfort making me boring?"
       ]
     },
     {
       "name": "Asset Weather",
-      "caption": "The portfolio has moods now.",
-      "value": 6,
+      "caption": "The portfolio has moods. You now have weather reports for your own money.",
+      "value": 7.4,
       "questions": [
-        "Who manages all this?",
-        "Is my accountant worried?",
-        "Do I need another advisor?",
-        "Is this enough for three generations?",
-        "Why does my peer have more?"
+        "Who manages all these accounts?",
+        "Why are taxes suddenly a personality trait?",
+        "Do I need another accountant?",
+        "Why does maintenance multiply by ownership?",
+        "Should I restructure everything?",
+        "Why is the second home always leaking something?"
       ]
     },
     {
       "name": "Admin Dynasty",
       "caption": "You escaped scarcity and entered scheduling.",
-      "value": 8,
+      "value": 9.3,
       "questions": [
-        "Which entity owns which thing?",
-        "Did I optimize the structure correctly?",
-        "Are my children too comfortable?",
-        "Why do I have six calendars?",
-        "Who manages the person who manages this?"
-      ]
-    },
-    {
-      "name": "Endless Tabs Open",
-      "caption": "Wealth unlocked: endless tabs open.",
-      "value": 10,
-      "questions": [
-        "Should the yacht have a gym?",
-        "Which tax jurisdiction matches my mood?",
-        "Do I need a retreat to recover from the retreat?",
-        "Why does the second chef need a consultant?",
-        "Am I diversified emotionally?"
+        "Are my children becoming too comfortable?",
+        "Why does someone poorer seem calmer?",
+        "How many passwords does wealth require?",
+        "Why do I have meetings about things I don’t enjoy?",
+        "Should the yacht have a sauna?",
+        "Which assistant manages the assistants?"
       ]
     },
     {
@@ -119,10 +132,11 @@
       "caption": "The curve has become a mirror and nobody likes that.",
       "value": 12,
       "questions": [
-        "Which assistant manages the assistants?",
-        "Should I buy privacy or silence?",
-        "Why does everyone want a meeting?",
-        "Is the island too visible?",
+        "Do I need a retreat to recover from travel?",
+        "Why do I own six calendars?",
+        "Is this enough for four generations?",
+        "Why does that billionaire still look stressed?",
+        "What exactly am I optimizing anymore?",
         "What was the point again?"
       ]
     }

@@ -20,36 +20,36 @@
         <p id="tier-caption"></p>
       </div>
 
-      <div class="graph-wrap">
-        <div id="question-layer" aria-hidden="true"></div>
+      <div class="graph-and-problems">
+        <div class="graph-wrap">
+          <svg id="money-graph" viewBox="0 0 900 520" role="img" aria-labelledby="graph-title graph-desc">
+            <title id="graph-title">Money versus problems graph</title>
+            <desc id="graph-desc">A U-shaped curve showing problems decreasing as money increases, then increasing again after the sweet spot.</desc>
 
-        <svg id="money-graph" viewBox="0 0 900 520" role="img" aria-labelledby="graph-title graph-desc">
-          <title id="graph-title">Money versus problems graph</title>
-          <desc id="graph-desc">A U-shaped curve showing problems decreasing as money increases, then increasing again after the sweet spot.</desc>
+            <line x1="110" y1="430" x2="820" y2="430" class="axis" />
+            <line x1="110" y1="430" x2="110" y2="80" class="axis" />
+            <polygon points="820,430 800,420 800,440" class="axis-fill" />
+            <polygon points="110,80 100,100 120,100" class="axis-fill" />
 
-          <!-- axes -->
-          <line x1="110" y1="430" x2="820" y2="430" class="axis" />
-          <line x1="110" y1="430" x2="110" y2="80" class="axis" />
-          <polygon points="820,430 800,420 800,440" class="axis-fill" />
-          <polygon points="110,80 100,100 120,100" class="axis-fill" />
+            <text x="465" y="490" class="axis-label">Money</text>
+            <text x="42" y="255" class="axis-label vertical">Problems</text>
 
-          <!-- axis labels -->
-          <text x="465" y="490" class="axis-label">Money</text>
-          <text x="42" y="255" class="axis-label vertical">Problems</text>
+            <path id="curve-path" class="curve" d="" />
 
-          <!-- curve -->
-          <path id="curve-path" class="curve" d="" />
+            <g id="sweet-marker">
+              <line id="sweet-line" class="sweet-line" x1="0" y1="0" x2="0" y2="430" />
+              <circle id="sweet-dot" class="sweet-dot" r="7" />
+              <text id="sweet-label" class="sweet-label" text-anchor="middle">The Sweet Spot</text>
+            </g>
 
-          <!-- sweet spot -->
-          <g id="sweet-marker">
-            <line id="sweet-line" class="sweet-line" x1="0" y1="0" x2="0" y2="430" />
-            <circle id="sweet-dot" class="sweet-dot" r="7" />
-            <text id="sweet-label" class="sweet-label" text-anchor="middle">The Sweet Spot</text>
-          </g>
+            <circle id="current-dot" class="current-dot" r="8" />
+          </svg>
+        </div>
 
-          <!-- moving dot -->
-          <circle id="current-dot" class="current-dot" r="8" />
-        </svg>
+        <aside class="problems-panel" aria-live="polite">
+          <p class="panel-eyebrow">Problems</p>
+          <ul id="problems-list"></ul>
+        </aside>
       </div>
 
       <div class="sweet-message" id="sweet-message" hidden></div>

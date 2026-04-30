@@ -4,12 +4,9 @@
   --muted: #707070;
   --line: #111111;
   --gold: #c9a227;
-  --blue: #4f86f7;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -35,8 +32,6 @@ body {
   letter-spacing: -0.055em;
   font-weight: 950;
   text-transform: uppercase;
-
-  /* chrome/meme style; easy to edit/remove */
   background: linear-gradient(90deg, #27f2ff, #ff4fd8, #ffe45c, #21f6b7, #8d63ff);
   -webkit-background-clip: text;
   background-clip: text;
@@ -61,7 +56,7 @@ body {
   min-height: 118px;
 }
 
-.eyebrow {
+.eyebrow, .panel-eyebrow {
   margin: 0 0 8px;
   color: var(--muted);
   text-transform: uppercase;
@@ -84,10 +79,18 @@ body {
   font-size: clamp(1rem, 1.8vw, 1.2rem);
 }
 
+.graph-and-problems {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 370px);
+  gap: 28px;
+  align-items: center;
+  width: min(1180px, 100%);
+  margin: 18px auto 8px;
+}
+
 .graph-wrap {
   position: relative;
-  width: min(950px, 100%);
-  margin: 18px auto 8px;
+  width: 100%;
   aspect-ratio: 900 / 520;
 }
 
@@ -97,25 +100,16 @@ body {
   display: block;
 }
 
-.axis,
-.curve {
+.axis, .curve {
   fill: none;
   stroke: var(--line);
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 
-.axis {
-  stroke-width: 4;
-}
-
-.axis-fill {
-  fill: var(--line);
-}
-
-.curve {
-  stroke-width: 5;
-}
+.axis { stroke-width: 4; }
+.axis-fill { fill: var(--line); }
+.curve { stroke-width: 5; }
 
 .axis-label {
   font-size: 36px;
@@ -128,9 +122,7 @@ body {
   transform-origin: 42px 255px;
 }
 
-.current-dot {
-  fill: var(--black);
-}
+.current-dot { fill: var(--black); }
 
 .sweet-line {
   stroke: var(--gold);
@@ -150,43 +142,47 @@ body {
   font-size: 23px;
 }
 
-#question-layer {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 2;
+.problems-panel {
+  min-height: 350px;
+  border: 2px solid var(--black);
+  border-radius: 22px;
+  padding: 22px;
+  background: var(--white);
 }
 
-.question {
-  position: absolute;
-  font-size: clamp(0.72rem, 1.25vw, 1rem);
-  line-height: 1.05;
-  max-width: 190px;
-  color: var(--black);
+.panel-eyebrow { margin-bottom: 14px; }
+
+#problems-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 11px;
+}
+
+#problems-list li {
+  font-size: clamp(0.92rem, 1.25vw, 1.04rem);
+  line-height: 1.2;
+  font-weight: 700;
   opacity: 0;
-  animation: thoughtFade var(--duration, 4.5s) ease-in-out forwards;
-  transform: translate(-50%, -50%);
-  font-weight: 650;
+  transform: translateY(6px);
+  animation: listFade 420ms ease forwards;
 }
 
-@keyframes thoughtFade {
-  0% { opacity: 0; }
-  18% { opacity: 1; }
-  76% { opacity: 1; }
-  100% { opacity: 0; }
+#problems-list li::before { content: "— "; }
+
+#problems-list li.peace::before { content: ""; }
+
+@keyframes listFade {
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.sweet-message,
-.final-message {
+.sweet-message, .final-message {
   width: min(820px, 100%);
   margin: 18px auto 0;
   text-align: center;
   font-size: clamp(1.05rem, 2vw, 1.35rem);
   line-height: 1.45;
-}
-
-.sweet-message {
-  color: var(--black);
 }
 
 .final-message {
@@ -264,16 +260,15 @@ input[type="range"] {
   color: var(--white);
 }
 
+@media (max-width: 860px) {
+  .graph-and-problems {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .problems-panel { min-height: auto; }
+}
+
 @media (max-width: 720px) {
-  .lab {
-    padding-top: 38px;
-  }
-
-  .axis-label {
-    font-size: 30px;
-  }
-
-  .question {
-    max-width: 145px;
-  }
+  .lab { padding-top: 38px; }
+  .axis-label { font-size: 30px; }
 }

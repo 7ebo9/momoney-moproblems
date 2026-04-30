@@ -1,80 +1,26 @@
-# Mo Money, Mo Problems: The Graph
+# Mo Money, Mo Problems: The Graph — v3
 
 Static website. No build step. Netlify-ready.
 
-## Files
+## Main edit file
 
-- `index.html` — page structure
-- `style.css` — visual styling
-- `script.js` — graph, slider, animations, share button
-- `content.json` — the file you edit most often
+Edit `content.json` to change:
 
-## How to edit tiers/questions
+- tier names
+- tier captions
+- problem questions
+- curve values
+- Sweet Spot message
+- final message
+- music embed
 
-Open `content.json`.
+## v3 changes
 
-Each tier looks like this:
+- Uses the 59-problem progression.
+- Sweet Spot is quieter: no question list, only “No major financial questions.”
+- Problems appear in a readable side panel beside the graph.
+- The curve values are heavier on both sides and lowest at The Sweet Spot.
 
-```json
-{
-  "name": "Survival Mode",
-  "caption": "Money is not abstract here.",
-  "value": 10,
-  "questions": [
-    "Can I pay rent?",
-    "Can I cover bills?"
-  ]
-}
-```
+## Deploy
 
-### What each field does
-
-- `name`: tier title shown above the graph
-- `caption`: short text under the tier title
-- `value`: how high the curve is at this tier. Higher number = more problems.
-- `questions`: the popup questions that fade in over the graph
-
-## Sweet Spot
-
-This line controls which tier is the Sweet Spot:
-
-```json
-"sweetSpotIndex": 5
-```
-
-The count starts from 0, so index 5 means the 6th tier.
-
-## Music embed
-
-Edit this field:
-
-```json
-"musicEmbedHtml": "..."
-```
-
-Paste a Spotify or YouTube embed iframe there.
-
-## Local preview
-
-Because the site loads `content.json`, open it through a tiny local server instead of double-clicking the HTML file.
-
-If you have Python:
-
-```bash
-python3 -m http.server 8080
-```
-
-Then visit:
-
-```text
-http://localhost:8080
-```
-
-## Deploy on Netlify
-
-1. Zip or upload these files to a GitHub repo.
-2. Go to Netlify.
-3. Add new site.
-4. Choose “Deploy manually” or connect GitHub.
-5. No build command needed.
-6. Publish directory is the root folder.
+Upload/replace all files in your GitHub repo. Netlify will auto-deploy.
